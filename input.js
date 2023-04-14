@@ -1,4 +1,7 @@
+const { connect } = require("./client");
+
 let connection;
+const say = ("Say: ");
 
 const setupInput = function(conn) {
   connection = conn;
@@ -22,6 +25,9 @@ const handleUserInput = (key) => {
     }
     if (key === 'd') {
       connection.write("Move: right");
+    }
+    if (key === 'e') {
+      connection.write(say + "Hello!");
     }
 };
 
