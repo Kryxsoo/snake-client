@@ -1,5 +1,3 @@
-const { connect } = require("./client");
-
 let connection;
 const say = ("Say: ");
 
@@ -14,21 +12,29 @@ const setupInput = function(conn) {
   });
 }
 const handleUserInput = (key) => {
-    if (key === 'w') {
+  if (key === 'w') {
+    intervalId = setInterval(function() {
       connection.write("Move: up");
-    }
-    if (key === 'a') {
+    }, 100);
+  }
+  if (key === 'a') {
+    intervalId = setInterval(function() {
       connection.write("Move: left");
-    }
-    if (key === 's') {
+    }, 100);
+  }
+  if (key === 's') {
+    intervalId = setInterval(function() {
       connection.write("Move: down");
-    }
-    if (key === 'd') {
+    }, 100);
+  }
+  if (key === 'd') {
+    intervalId = setInterval(function() {
       connection.write("Move: right");
-    }
-    if (key === 'e') {
+    }, 100);
+  }
+  if (key === 'e') {
       connection.write(say + "Hello!");
-    }
+  }
 };
 
 module.exports = {setupInput};
