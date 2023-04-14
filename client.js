@@ -11,12 +11,6 @@ const connect = function () {
     conn.write("Name: xxx")
   });
 
-  conn.on('connect', () => {
-    setInterval( func = () => {
-      conn.write("Move: up");
-    }, 500);
-  });
-
   conn.on('data', (data) => {
     console.log(data.toString());
     conn.end();
@@ -26,10 +20,9 @@ const connect = function () {
     console.log('disconnected from server');
     // interpret incoming data as text
     conn.setEncoding("utf8");
+    process.exit();
   });
     return conn;
 };
 
-module.exports  = {
-  connect,
-};
+module.exports  = {connect};
